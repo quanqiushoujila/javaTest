@@ -20,16 +20,8 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         return saveOrUpdate(user);
     }
 
-    public List<User> findAll () {
-        return userMapper.findAll();
-    }
-
-    public Integer deleteById (Integer id) {
-        return userMapper.deleteById(id);
-    }
-
     public User getById (Integer id) {
-        return userMapper.getById(id);
+        return getById(id);
     }
 
     public Integer getTotal () {

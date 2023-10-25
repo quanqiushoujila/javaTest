@@ -6,6 +6,9 @@ spring:
     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8&serverTimezone=Asia/Shanghai&nullCatalogMeansCurrent=true&rewriteBatchedStatements=true&autoReconnect=true&failOverReadOnly=false
     username: root
     password: root
+  mvc:
+    pathmatch:
+      matching-strategy: ant_path_matcher
 mybatis:
   mapper-locations: classpath:mapper/*.xml
 #  configuration:
@@ -14,4 +17,6 @@ mybatis:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
 

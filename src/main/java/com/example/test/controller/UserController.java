@@ -2,6 +2,7 @@ package com.example.test.controller;
 
 import com.example.test.entity.User;
 import com.example.test.service.UserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,13 +17,15 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+
     @GetMapping("/listAll")
     public List<User> listAll () {
-        List<User> all = userService.findAll();
+        List<User> all = userService.list();
         return all;
     }
 
     @GetMapping("/page")
+    @ApiOperation("分页")
     public Map<String, Object> getPage (@RequestParam Map<String, String> params) {
         Integer total = userService.getTotal();
         List<User> list = userService.getPage(params);
@@ -43,7 +46,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public Integer delete(@PathVariable Integer id) {
-        return userService.deleteById(id);
+    public boolean delete(@PathVariable Integer id) {
+        return userService.removeById(id);
     }
 }
