@@ -10,7 +10,4 @@ import java.util.List;
 //@Mapper
 public interface UserMapper extends BaseMapper<User> {
 
-    Integer selectTotal();
-
-    List<User> getPage(@Param("page") Integer page, @Param("limit") Integer limit);
 }
